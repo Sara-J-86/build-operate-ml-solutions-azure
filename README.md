@@ -1,115 +1,101 @@
 # Build and Operate Machine Learning Solutions with Azure (Project)
 
-This repository contains the completed project from the **Microsoft Learn** course:  
+This repository contains the completed project for the **Microsoft Learn** course:  
 **[Build and Operate Machine Learning Solutions with Azure](https://learn.microsoft.com/en-us/training/paths/build-operate-machine-learning-solutions-azure/)**
 
-The course is designed to teach machine learning engineers and data scientists how to build, train, deploy, and monitor ML models in the **Azure Machine Learning (Azure ML)** environment. This local project mirrors that end-to-end lifecycle using Python and the **UCI Adult Census Income dataset**.
+The course teaches how to manage the complete machine learning lifecycle using Azure Machine Learning. It covers key concepts such as training, deployment, batch inference, fairness, and monitoring. This project replicates those workflows locally using Python and the UCI Adult Census Income dataset.
 
 ---
 
 ## Course Overview
 
-The course is structured to simulate a real-world machine learning solution lifecycle in Azure, with each module targeting a specific aspect of operational ML:
+The course is organized into several modules that simulate real-world machine learning workflows in Azure:
 
-### 1. **Getting Started with Azure ML**
-- Provisioning and managing an Azure Machine Learning workspace.
-- Running code-based experiments with notebooks, CLI, and SDK.
-- Training a model and registering it in the workspace.
+### 1. Getting Started with Azure ML
+- Set up an Azure Machine Learning workspace
+- Run experiments using notebooks, CLI, and SDK
+- Train and register models
 
+### 2. Working with Data in Azure ML
+- Create and manage datastores and datasets
+- Access and preprocess data in the cloud
+- Use compute resources for training
 
----
+### 3. Training Models with Pipelines
+- Build, publish, and execute training pipelines
+- Register and deploy models with the Azure ML service
 
-### 2. **Working with Data in Azure ML**
-- Creating and managing **Datastores** and **Datasets**.
-- Accessing and preprocessing data in the cloud.
-- Using cloud compute targets for training at scale.
+### 4. Batch Inference and Hyperparameter Tuning
+- Create and run batch inference pipelines
+- Perform large-scale hyperparameter sweeps
 
+### 5. Automated ML, Fairness, and Explainability
+- Use AutoML to find the best model
+- Analyze fairness using Fairlearn
+- Apply privacy techniques and explainability methods
 
----
-
-###  3. **Training Models with Pipelines**
-- Building, publishing, and running pipelines to train models.
-- Model registration and deployment with Azure ML service.
-
-
-
----
-
-###  4. **Batch Inference & Hyperparameter Tuning**
-- Creating batch inference pipelines.
-- Running **cloud-scale hyperparameter sweeps**.
-
-
+### 6. Monitoring and Managing Models
+- Monitor deployed models using telemetry
+- Detect data drift and maintain performance
+- Implement responsible AI practices
 
 ---
 
-###  5. **Automated ML, Fairness & Explainability**
-- Using **AutoML** for model selection.
-- Ensuring **data privacy** and using **Fairlearn** for fairness.
-- Analyzing model predictions and explainability with SHAP.
+## Project Structure
 
+This project simulates Azure ML workflows using open-source tools and a local environment.
 
-
----
-
-###  6. **Monitoring & Managing Models**
-- Understanding real-world telemetry after deployment.
-- Detecting **data drift** and **concept drift**.
-- Maintaining model accuracy and fairness in production.
-
-
----
-
-##  Project Contents
-
-This repository recreates the Azure ML lifecycle **locally**, using Python and `scikit-learn`. It uses the **UCI Adult Income dataset** to predict whether an individual earns more than $50K/year.
-
-| File / Folder | Description |
-|---------------|-------------|
-| `data/adult.csv` | Cleaned dataset for training |
-| `notebook1_data_pipeline_training.ipynb` | Model training, preprocessing, pipeline, and hyperparameter tuning |
-| `notebook2_batch_inference.ipynb` | Simulates batch scoring with the trained model |
-| `notebook3_model_monitoring_drift_detection.ipynb` | Detects data drift between training and new data |
-| `metrics/` | Metrics file and feature importance plot |
-| `models/` | Saved trained model (`.pkl`) |
-| `requirements.txt` | List of dependencies |
-| `README.md` | This documentation file |
+| File / Folder                                | Description                                                   |
+|---------------------------------------------|---------------------------------------------------------------|
+| `data/adult.csv`                             | Cleaned UCI Adult dataset                                     |
+| `notebook1_data_pipeline_training.ipynb`     | Data preprocessing, pipeline creation, training, and tuning  |
+| `notebook2_batch_inference.ipynb`            | Simulated batch scoring with trained model                   |
+| `notebook3_model_monitoring_drift_detection.ipynb` | Feature distribution comparison and drift detection       |
+| `models/`                                    | Serialized trained model (`.pkl`)                            |
+| `metrics/`                                   | Metrics and feature importance plots                         |
+| `requirements.txt`                           | Python dependencies                                           |
+| `README.md`                                  | Project documentation                                         |
 
 ---
 
-## Summary of Notebooks
+## Notebooks Summary
 
-###  Notebook 1: Data Pipeline & Model Training
-- Cleans the dataset and encodes features
-- Builds a training pipeline using `Pipeline` and `GridSearchCV`
-- Trains a `RandomForestClassifier`
-- Saves the model and evaluation metrics
+### Notebook 1: Data Pipeline and Training
+- Loads and cleans the Adult Income dataset
+- Encodes categorical variables and scales features
+- Trains a `RandomForestClassifier` using a pipeline
+- Performs hyperparameter tuning with `GridSearchCV`
+- Saves the model and metrics
 
-### Notebook 2: Batch Inference Simulation
-- Loads trained model
-- Samples new batch data from original dataset
-- Performs predictions and saves results
+### Notebook 2: Batch Inference
+- Loads the saved model
+- Samples new data and simulates a batch prediction process
+- Generates and stores inference results
 
-### Notebook 3: Monitoring and Drift Detection
-- Compares batch and training distributions
-- Uses:
-  - **Kolmogorov–Smirnov test** for numeric features
-  - **Chi-squared test** for categorical features
-- Flags any significant data drift
-
----
-
-## Dataset
-
-- **Source**: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/adult)
-- **Description**: Dataset based on 1994 US Census. Goal is to predict whether income exceeds $50K based on features like age, education, and occupation.
-- Already downloaded locally as: `data/adult.csv`
+### Notebook 3: Drift Detection and Monitoring
+- Compares training and batch data distributions
+- Uses Kolmogorov–Smirnov test for numeric features
+- Uses Chi-squared test for categorical features
+- Identifies feature drift that may require model retraining
 
 ---
 
-## Requirements
+## Dataset Information
 
-Install dependencies with:
+- **Source**: [UCI Machine Learning Repository – Adult Dataset](https://archive.ics.uci.edu/ml/datasets/adult)
+- **Goal**: Predict whether a person earns more than \$50,000 per year
+- **Features**: Age, workclass, education, occupation, hours-per-week, etc.
+- **Target Variable**: `income` (binary classification)
+
+The dataset is saved locally as `data/adult.csv`.
+
+---
+
+## Setup Instructions
+
+Clone the repository and install dependencies:
 
 ```bash
+git clone https://github.com/Sara-J-86/build-operate-ml-solutions-azure.git
+cd build-operate-ml-solutions-azure
 pip install -r requirements.txt
