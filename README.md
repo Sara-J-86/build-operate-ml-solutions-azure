@@ -5,7 +5,6 @@ This repository contains the completed project for the **Microsoft Learn** cours
 
 The course teaches how to manage the complete machine learning lifecycle using Azure Machine Learning. It covers key concepts such as training, deployment, batch inference, fairness, and monitoring. This project replicates those workflows locally using Python and the UCI Adult Census Income dataset.
 
----
 
 ## Course Overview
 
@@ -39,7 +38,6 @@ The course is organized into several modules that simulate real-world machine le
 - Detect data drift and maintain performance
 - Implement responsible AI practices
 
----
 
 ## Project Structure
 
@@ -56,7 +54,6 @@ This project simulates Azure ML workflows using open-source tools and a local en
 | `requirements.txt`                           | Python dependencies                                           |
 | `README.md`                                  | Project documentation                                         |
 
----
 
 ## Notebooks Summary
 
@@ -78,7 +75,6 @@ This project simulates Azure ML workflows using open-source tools and a local en
 - Uses Chi-squared test for categorical features
 - Identifies feature drift that may require model retraining
 
----
 
 ## Dataset Information
 
@@ -89,7 +85,7 @@ This project simulates Azure ML workflows using open-source tools and a local en
 
 The dataset is saved locally as `data/adult.csv`.
 
----
+
 
 ## Setup Instructions
 
