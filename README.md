@@ -7,7 +7,7 @@ The course is designed to teach machine learning engineers and data scientists h
 
 ---
 
-## 🎯 Course Overview
+## Course Overview
 
 The course is structured to simulate a real-world machine learning solution lifecycle in Azure, with each module targeting a specific aspect of operational ML:
 
